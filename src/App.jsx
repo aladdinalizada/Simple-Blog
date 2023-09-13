@@ -15,7 +15,6 @@ function App() {
       localStorage.clear();
       setIsAuth(false);
       window.location.pathname = "/login";
-      window.location.reload();
     });
   };
 
@@ -27,14 +26,14 @@ function App() {
           <Link to="/login"> Login </Link>
         ) : (
           <>
-            <Link to="/createpost"> Create Post </Link>
+            <Link to="/create-post"> Create Post </Link>
             <button onClick={signUserOut}> Log Out</button>
           </>
         )}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/create-post" element={<CreatePost />} isAuth={isAuth} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
